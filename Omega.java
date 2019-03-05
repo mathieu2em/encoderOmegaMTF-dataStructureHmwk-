@@ -4,22 +4,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 
-
 public class Omega {
 
     BinaryOut binaryOut = new BinaryOut();
-
     private LinkedList<Integer> permutations;
 
-    public static void main(String[] args) {
-
-    }
     // le constructeur fera d'un seul coup la lecture des entiers d'un texte
     public Omega(String fichier){
 
         permutations = new LinkedList<Integer>();
 
-        for( var i=0; i<65536; i++) {
+        for( int i=0; i<65536; i++) {
             permutations.add(i);
         }
 
@@ -69,7 +64,7 @@ public class Omega {
     // cette methode prend l'entier et l'ecris dans un fichier binaire sous system.out
     // l'equation utilisant les operateurs binaires est inspiree du code de sedgewick
     private void ecrire(int integer, int size){
-        for ( var i=0; i<size; i++) {
+        for ( int i=0; i<size; i++) {
             boolean bit = ((integer >>> (size - i - 1)) & 1) == 1;
             binaryOut.writeBit(bit);
         }
